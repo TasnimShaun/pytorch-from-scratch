@@ -55,6 +55,7 @@ Calculus allows us to measure how quickly y changes with respect to x.
 This rate of change is represented by the derivative:
 
 dy/dx
+
 ---
 ## 3. Derivative
 
@@ -75,6 +76,7 @@ then:
 dy/dx = 6
 
 The derivative tells us how sensitive the output is to a small change in the input.
+
 ---
 ## 4. Why Derivatives Matter in Machine Learning
 
@@ -96,6 +98,7 @@ dL/dw
 This tells us how the loss changes when the weight changes.
 
 The gradient is then used by optimization algorithms such as Gradient Descent.
+
 ---
 ## 5. Gradient Descent Connection
 
@@ -110,6 +113,7 @@ w = current parameter
 dL/dw = gradient
 
 The derivative tells us the direction in which the parameter should move.
+
 ---
 ## 6. Manual Derivative Implementation
 
@@ -139,6 +143,7 @@ Output:
 Gradient: 6
 
 Here we manually wrote the derivative formula.
+
 ---
 ## 7. Why Automatic Differentiation?
 
@@ -146,23 +151,14 @@ In a real neural network, the mathematical expression can become extremely compl
 
 For example:
 
-x
-↓
-Linear Layer
-↓
-Activation
-↓
-Linear Layer
-↓
-Activation
-↓
-Loss
+x -> Linear Layer -> Activation -> Linear Layer - > Activation↓Loss
 
 There may be millions of parameters and many operations.
 
 Computing every derivative manually would be impractical.
 
 This is why frameworks such as PyTorch provide automatic differentiation.
+
 ---
 ## 8. Connection to Autograd
 
@@ -180,16 +176,16 @@ y = x ** 2
 y.backward()
 
 print(x.grad)
-
+```
 Output:
 
 tensor(6.)
-```
 We manually knew:
 
 dy/dx = 2x
 
 PyTorch calculated it automatically.
+
 ---
 ## 9. Important Distinction
 
