@@ -151,12 +151,10 @@ In a real neural network, the mathematical expression can become extremely compl
 
 For example:
 
-x -> Linear Layer -> Activation -> Linear Layer - > Activation↓Loss
+x -> Linear Layer -> Activation -> Linear Layer - > Activation -> Loss
 
 There may be millions of parameters and many operations.
-
 Computing every derivative manually would be impractical.
-
 This is why frameworks such as PyTorch provide automatic differentiation.
 
 ---
@@ -180,6 +178,7 @@ print(x.grad)
 Output:
 
 tensor(6.)
+
 We manually knew:
 
 dy/dx = 2x
@@ -191,15 +190,9 @@ PyTorch calculated it automatically.
 
 Manual differentiation:
 
-Human writes the derivative formula
-        ↓
-Python calculates the value
+Human writes the derivative formula -> Python calculates the value 
 
 Automatic differentiation:
 
-Human defines the computation
-        ↓
-PyTorch tracks the operations
-        ↓
-Autograd calculates the derivative
+Human defines the computation -> PyTorch tracks the operations -> Autograd calculates the derivative
 
