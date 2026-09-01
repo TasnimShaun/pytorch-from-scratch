@@ -41,7 +41,8 @@ y = x ** 2
 
 print(y)
 ```
-2. Rate of Change
+---
+## 2. Rate of Change
 
 Suppose:
 
@@ -54,8 +55,8 @@ Calculus allows us to measure how quickly y changes with respect to x.
 This rate of change is represented by the derivative:
 
 dy/dx
-
-3. Derivative
+---
+## 3. Derivative
 
 For:
 
@@ -74,8 +75,8 @@ then:
 dy/dx = 6
 
 The derivative tells us how sensitive the output is to a small change in the input.
-
-4. Why Derivatives Matter in Machine Learning
+---
+## 4. Why Derivatives Matter in Machine Learning
 
 Machine learning models contain parameters such as:
 
@@ -95,8 +96,8 @@ dL/dw
 This tells us how the loss changes when the weight changes.
 
 The gradient is then used by optimization algorithms such as Gradient Descent.
-
-5. Gradient Descent Connection
+---
+## 5. Gradient Descent Connection
 
 A basic parameter update is:
 
@@ -109,8 +110,8 @@ w = current parameter
 dL/dw = gradient
 
 The derivative tells us the direction in which the parameter should move.
-
-6. Manual Derivative Implementation
+---
+## 6. Manual Derivative Implementation
 
 For:
 
@@ -132,3 +133,77 @@ x = 3
 gradient = derivative(x)
 
 print("Gradient:", gradient)
+```
+Output:
+
+Gradient: 6
+
+Here we manually wrote the derivative formula.
+---
+## 7. Why Automatic Differentiation?
+
+In a real neural network, the mathematical expression can become extremely complicated.
+
+For example:
+
+x
+↓
+Linear Layer
+↓
+Activation
+↓
+Linear Layer
+↓
+Activation
+↓
+Loss
+
+There may be millions of parameters and many operations.
+
+Computing every derivative manually would be impractical.
+
+This is why frameworks such as PyTorch provide automatic differentiation.
+---
+## 8. Connection to Autograd
+
+PyTorch Autograd automatically computes derivatives of operations that are tracked by the computational graph.
+
+Example:
+### Python
+```python
+import torch
+
+x = torch.tensor(3.0, requires_grad=True)
+
+y = x ** 2
+
+y.backward()
+
+print(x.grad)
+
+Output:
+
+tensor(6.)
+```
+We manually knew:
+
+dy/dx = 2x
+
+PyTorch calculated it automatically.
+---
+## 9. Important Distinction
+
+Manual differentiation:
+
+Human writes the derivative formula
+        ↓
+Python calculates the value
+
+Automatic differentiation:
+
+Human defines the computation
+        ↓
+PyTorch tracks the operations
+        ↓
+Autograd calculates the derivative
+
